@@ -17,4 +17,14 @@ public class SlopMethods {
 		System.out.println();
 	}
 	
+	public static double subtotal(List<Double>price ,List<Integer>quantity) {
+		double subtotal = 0;
+		
+		for (int i = 0; i < price.size();i++){
+			subtotal += price.get(i) * quantity.get(i);
+		}
+		
+		return subtotal;
+		
+	}
 }

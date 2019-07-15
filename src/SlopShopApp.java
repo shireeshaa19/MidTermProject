@@ -45,19 +45,33 @@ public class SlopShopApp {
 			userSelection = userSelection - 1;
 			
 			System.out.println(name.get(userSelection) + " are $" + df2.format(price.get(userSelection)) + ". How many would you like to purchase?");
-			quantity.add(userSelection, scnr.nextInt());
-			scnr.nextLine();			
+			int tempQuantity = scnr.nextInt();
+			scnr.nextLine();
+			quantity.add(userSelection, quantity.get(userSelection) + tempQuantity);
+			
+						
+			
+			System.out.println("The total for " + quantity.get(userSelection) + " " + name.get(userSelection) + " is $" + (price.get(userSelection) * quantity.get(userSelection) ));
 			
 			
-			
-			System.out.println("true or no");
+			System.out.println("would you like to purchase something else? (y/n)");
 			String userInput = scnr.nextLine();
-			if(userInput.equalsIgnoreCase("true")) {
+			if(userInput.equalsIgnoreCase("y")) {
 				valid = true;
 			}else {
 				valid = false;
 			}
 		}while(valid);
+		
+		double subtotal = SlopMethods.subtotal(price, quantity);
+		System.out.println("subtotal: $" + df2.format(subtotal));
+		double salesTax = subtotal * 0.06;
+		System.out.println("Sales Tax: $" + df2.format(salesTax));
+		System.out.println("Grand Total :$ " + df2.format(subtotal + salesTax));
+		
+		
+		System.out.println("GoodBye");
+		scnr.close();
 		
 		
 		
