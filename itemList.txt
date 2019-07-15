@@ -1,12 +1,12 @@
-Sloppy Joe,food,messy,3.50
-Deep Fried Eyeballs,food,juicy,1.99
-Pickled Fingers,food,crunchy,5.00
-Cauliflower Ears,food,gummy,2.00
-Stomach Acid,drink,tangy,3.99
-Bone Marrow,drink,savory,2.99
-Toe Jam,drink,fruity,1.99
-Eye Gunk,drink,sticky,0.99
-Teeth Smoothie,dessert,thick,1.50
-Eye Scream,dessert,cold,1.00
-Blood-Filled Donut,dessert,hard,2.00
-Gallbladder Grunt,dessert,creamy,1.50
+Sloppy Joe,Food,Messy,3.50
+Fried Eyeballs,Food,Juicy,1.99
+Pickled Fingers,Food,Crunchy,5.00
+Cauliflower Ears,Food,Gummy,2.00
+Stomach Acid,Drink,Tangy,3.99
+Bone Marrow,Drink,Savory,2.99
+Toe Jam,Drink,Fruity,1.99
+Eye Gunk,Drink,Sticky,0.99
+Teeth Smoothie,Dessert,Thick,1.50
+Eye Scream,Dessert,Cold,1.00
+Blood-Filled Donut,Dessert,Hard,2.00
+Gallbladder Grunt,Dessert,Creamy,1.50
