@@ -6,6 +6,7 @@ public class MidTerm {
 		System.out.println("They were very clever monkeys indeed, known for their ingenious teamwork.");
 		System.out.println("The monkeys loved to eat bananas. but their blood-lust was far superior to their love of bannanas. They would take down entire civilizations just for a taste of flesh.");
 		System.out.println("James then took on the monkeys with his banana shorts!");
+		System.out.println("Once they were challenged by a swarm of seemingly unstoppable bugs.");
 	}
 
 }
