@@ -5,16 +5,18 @@ public class Product {
 	private String category;
 	private String description;
 	private double price;
+	private int quantity;
 	
 	public Product(){
 		super();
 	}
 	
-	public Product(String name,String category,String description,double price){
+	public Product(String name,String category,String description,double price, int quantity){
 		this.name = name;
 		this.category = category;
 		this.description = description;
 		this.price = price;
+		this.quantity = 0;
 	}
 
 	@Override
@@ -53,6 +55,14 @@ public class Product {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 

@@ -13,6 +13,7 @@ public class SlopShopApp {
 		List<Product> itemsList = SlopUtil.readFile();
 		List<String> name = new ArrayList<>();
 		List<Double> price = new ArrayList<>();
+		List<Integer> quantity = new ArrayList<>();
 		
 		for(int i = 0; i < itemsList.size(); i++) {
 			Product p = itemsList.get(i);
@@ -26,6 +27,10 @@ public class SlopShopApp {
 			price.add(temp);
 		}
 		
+		for(int i = 0; i < itemsList.size(); i++) {
+			quantity.add(0);
+			
+		}
 		
 		
 		
@@ -39,7 +44,10 @@ public class SlopShopApp {
 			scnr.nextLine(); // clear scanner
 			userSelection = userSelection - 1;
 			
-			System.out.println(name.get(userSelection) + " price " + df2.format(price.get(userSelection)));
+			System.out.println(name.get(userSelection) + " are $" + df2.format(price.get(userSelection)) + ". How many would you like to purchase?");
+			quantity.add(userSelection, scnr.nextInt());
+			scnr.nextLine();			
+			
 			
 			
 			System.out.println("true or no");
