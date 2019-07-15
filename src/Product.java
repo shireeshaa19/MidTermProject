@@ -1,17 +1,17 @@
 
 public class Product {
-	
+
 	private String name;
 	private String category;
 	private String description;
 	private double price;
 	private int quantity;
-	
-	public Product(){
+
+	public Product() {
 		super();
 	}
-	
-	public Product(String name,String category,String description,double price, int quantity){
+
+	public Product(String name, String category, String description, double price, int quantity) {
 		this.name = name;
 		this.category = category;
 		this.description = description;
@@ -22,7 +22,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return (String.format("%-22s%-12s%-10s%-18.2f", getName(), getCategory(), getDescription(), getPrice()));
-			
+
 	}
 
 	public String getName() {
@@ -64,6 +64,5 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
 
 }
