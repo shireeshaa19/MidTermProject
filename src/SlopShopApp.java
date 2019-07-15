@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SlopShopApp {
-
+	static Scanner scnr = new Scanner(System.in);
 	public static void main(String[] args) {
-		Scanner scnr = new Scanner(System.in);
 		Path path = Paths.get("itemList.txt");
 		List<Product> itemsList = SlopUtil.readFile();
 		List<String> name = new ArrayList<>();
