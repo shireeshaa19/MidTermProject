@@ -17,7 +17,7 @@ public class SlopShopApp {
 			List<String> name = new ArrayList<>();
 			List<Double> price = new ArrayList<>();
 			List<Integer> quantity = new ArrayList<>();
-			List<Product> reciptList = new ArrayList<>();
+			List<Receipt> receiptList = new ArrayList<>();
 
 			for (int i = 0; i < itemsList.size(); i++) {
 				Product p = itemsList.get(i);
@@ -103,14 +103,30 @@ public class SlopShopApp {
 			System.out.println("Grand Total: $" + df2.format(grandTotal));
 			System.out.println();
 			
+			for (int i = 0; i < itemsList.size(); i++) {
+				if (quantity.get(i) > 0 ) {
+					receiptList.add(new Receipt(name.get(i),quantity.get(i),(quantity.get(i)*price.get(i))));
+					
+				}
+			}
+			
+			
 			double userCash = 0;
 			do {
 				valid = true;
 				System.out.println("How would you like to pay? (cash/credit/check): ");
 				String userPayment = scnr.nextLine();
 				if (userPayment.equalsIgnoreCase("cash")) {
-					double change = SlopMethods.cash(grandTotal, scnr);
-					SlopMethods.cashReciept(subtotal, salesTax, grandTotal, userCash,change);
+					System.out.println("Enter cash amount.");
+					try {
+					userCash = scnr.nextDouble();
+					scnr.nextLine();
+					}catch (InputMismatchException e){
+						scnr.nextLine();
+						System.out.println("Please enter a valid cash amount.");
+					}
+					double change = SlopMethods.cash(grandTotal, scnr, userCash);
+					SlopMethods.cashReciept(subtotal, salesTax, grandTotal, userCash, change, receiptList);
 				} else if (userPayment.equalsIgnoreCase("credit")) {
 					SlopMethods.card(scnr);
 				} else if (userPayment.equalsIgnoreCase("check")) {

@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -31,21 +32,23 @@ public class SlopMethods {
 
 	}
 
-	public static double cash(double grandTotal, Scanner scnr) {
+	public static double cash(double grandTotal, Scanner scnr, double userCash) {
 		boolean valid = true;
 		double change = 0;
-		double userCash = 0;
+		double useryCash = userCash;
 		do {
-			System.out.println("Enter cash amount.");
+			
 			try {
-			userCash = scnr.nextDouble();
-			scnr.nextLine();
+				useryCash = userCash;
+				scnr.nextLine();
 			}catch (InputMismatchException e){
 				scnr.nextLine();
 				System.out.println("Please enter a valid cash amount.");
+				useryCash = scnr.nextDouble();
+				scnr.nextLine();
 			}
-			if (userCash > grandTotal) {
-				change = userCash - grandTotal;
+			if (useryCash > grandTotal) {
+				change = useryCash - grandTotal;
 				valid = true;
 
 			} else {
@@ -121,23 +124,31 @@ public class SlopMethods {
 		return true;
 	}
 	
-	public static void cashReciept(double subtotal, double salesTax, double grandTotal, double userCash, double change){
+	public static void cashReciept(double subtotal, double salesTax, double grandTotal, double userCash, double change, List<Receipt> list){
 		double subytotal = subtotal;
 		double tax = salesTax;
 		double grandyTotal = grandTotal;
 		double useryCash = userCash;
 		double changey = change;
-		
+		List<Receipt> reciptList = list;
 		
 		System.out.println("Here is your reciept!");
 		System.out.println();
 		System.out.println("Slop Hut");
 		System.out.println("--------");
+		for(Receipt r : reciptList) {
+			System.out.println(r.toString());
+			
+		}
+		System.out.println();
 		System.out.println("subtotal: " + subytotal);
-		System.out.println("tax: " + tax);
-		System.out.println("Total: " + grandyTotal);
-		System.out.println("Payment =" +useryCash   );
-		System.out.println("Change Tendered: " +changey);
+		System.out.println("tax: " + df2.format(tax));
+		System.out.println("Total: " + df2.format(grandyTotal));
+		System.out.println("Payment =" +userCash   );
+		System.out.println("Change Tendered: " + df2.format(changey));
 		
 	}
+	
+	
+	private static DecimalFormat df2 = new DecimalFormat("#.##");
 }
