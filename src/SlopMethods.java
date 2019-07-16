@@ -31,20 +31,7 @@ public class SlopMethods {
 	}
 
 	public static double cash(double grandTotal, Scanner scnr, double userCash) {
-		boolean valid = true;
-		double change = 0;
-		double useryCash = userCash;
-		do {
-			if (useryCash > grandTotal) {
-				change = useryCash - grandTotal;
-				valid = true;
-
-			} else {
-				System.out.println("That isn't enough to pay for your order");
-				valid = false;
-			}
-		} while (!valid);
-
+		double change = userCash - grandTotal;
 		return change;
 	}
 

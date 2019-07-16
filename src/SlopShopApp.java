@@ -116,9 +116,9 @@ public class SlopShopApp {
 				System.out.println("How would you like to pay? (cash/credit/check): ");
 				String userPayment = scnr.nextLine();
 				if (userPayment.equalsIgnoreCase("cash")) {
-					boolean cashTryCatch = true;
+					boolean cashVerify = true;
 					do {
-						cashTryCatch = true;
+						cashVerify = true;
 						System.out.println("Enter cash amount.");
 						try {
 							userCash = scnr.nextDouble();
@@ -126,9 +126,15 @@ public class SlopShopApp {
 						} catch (InputMismatchException e) {
 							scnr.nextLine();
 							System.out.println("Please enter a valid cash amount.");
-							cashTryCatch = false;
+							cashVerify = false;
 						}
-					} while (!cashTryCatch);
+						if (userCash > grandTotal) {
+							cashVerify = true;
+						} else {
+							System.out.println("That isn't enough to pay for your order");
+							cashVerify = false;
+						}
+					} while (!cashVerify);
 					double change = SlopMethods.cash(grandTotal, scnr, userCash);
 					SlopMethods.cashReciept(subtotal, salesTax, grandTotal, userCash, change, receiptList);
 				} else if (userPayment.equalsIgnoreCase("credit")) {
