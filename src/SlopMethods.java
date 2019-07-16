@@ -74,9 +74,9 @@ public class SlopMethods {
 
 		do {
 			valid = true;
-			System.out.println("Please enter your expiration date (xx-xxxx)");
+			System.out.println("Please enter your expiration date (xx/xxxx)");
 			expiration = scnr.nextLine();
-			if (expiration.matches("\\d{2}-\\d{4}")) {
+			if (expiration.matches("(0[1-9]|10|11|12)/20[0-9]{2}")) {
 			} else {
 				System.out.println("Thats not a valid expiration date");
 				valid = false;
