@@ -33,7 +33,7 @@ public void setQuantity(int quantity) {
 }
 @Override
 public String toString() {
-	return (String.format("%-22s%-12d$%-10.2f", getName(),getQuantity(),getPrice()));
+		return (String.format("%-22s%-12d$%-10.2f", getName(),getQuantity(),getPrice()));
 }
 
 

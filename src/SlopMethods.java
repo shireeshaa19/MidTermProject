@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,16 +35,6 @@ public class SlopMethods {
 		double change = 0;
 		double useryCash = userCash;
 		do {
-			
-			try {
-				useryCash = userCash;
-				scnr.nextLine();
-			}catch (InputMismatchException e){
-				scnr.nextLine();
-				System.out.println("Please enter a valid cash amount.");
-				useryCash = scnr.nextDouble();
-				scnr.nextLine();
-			}
 			if (useryCash > grandTotal) {
 				change = useryCash - grandTotal;
 				valid = true;
@@ -56,7 +44,7 @@ public class SlopMethods {
 				valid = false;
 			}
 		} while (!valid);
-		
+
 		return change;
 	}
 
@@ -68,7 +56,7 @@ public class SlopMethods {
 			checkNumber = scnr.nextLine();
 			if (checkNumber.matches("[0-9]{9}")) {
 				valid = true;
-				System.out.println("Check accepted!");
+				// System.out.println("Check accepted!");
 			} else {
 				System.out.println("That is not a valid check number");
 				valid = false;
@@ -120,35 +108,80 @@ public class SlopMethods {
 			}
 
 		} while (!valid);
-		System.out.println("Card accepted, have a great day!");
 		return true;
 	}
-	
-	public static void cashReciept(double subtotal, double salesTax, double grandTotal, double userCash, double change, List<Receipt> list){
+
+	public static void cashReciept(double subtotal, double salesTax, double grandTotal, double userCash, double change,
+			List<Receipt> list) {
 		double subytotal = subtotal;
 		double tax = salesTax;
 		double grandyTotal = grandTotal;
 		double useryCash = userCash;
 		double changey = change;
 		List<Receipt> reciptList = list;
-		
+
 		System.out.println("Here is your reciept!");
 		System.out.println();
 		System.out.println("Slop Hut");
 		System.out.println("--------");
-		for(Receipt r : reciptList) {
+		for (Receipt r : reciptList) {
 			System.out.println(r.toString());
-			
+
 		}
+		System.out.println("------------------------------------------");
+		System.out.printf("%30s%5s%.2f\n", "Subtotal:", "$", subytotal);
+		System.out.printf("%30s%5s%.2f\n", "Tax:", "$", tax);
+		System.out.printf("%30s%5s%.2f\n", "Total:", "$", grandyTotal);
+		System.out.printf("%30s%5s%.2f\n", "Payment:", "$", useryCash);
+		System.out.printf("%30s%5s%.2f\n", "Change Tendered:", "$", changey);
 		System.out.println();
-		System.out.println("subtotal: " + subytotal);
-		System.out.println("tax: " + df2.format(tax));
-		System.out.println("Total: " + df2.format(grandyTotal));
-		System.out.println("Payment =" +userCash   );
-		System.out.println("Change Tendered: " + df2.format(changey));
-		
+
 	}
-	
-	
-	private static DecimalFormat df2 = new DecimalFormat("#.##");
+
+	public static void checkReciept(double subtotal, double salesTax, double grandTotal, List<Receipt> list) {
+		double subytotal = subtotal;
+		double tax = salesTax;
+		double grandyTotal = grandTotal;
+		List<Receipt> reciptList = list;
+
+		System.out.println("Here is your reciept!");
+		System.out.println();
+		System.out.println("Slop Hut");
+		System.out.println("--------");
+		for (Receipt r : reciptList) {
+			System.out.println(r.toString());
+
+		}
+		System.out.println("------------------------------------------");
+		System.out.printf("%30s%5s%.2f\n", "Subtotal:", "$", subytotal);
+		System.out.printf("%30s%5s%.2f\n", "Tax:", "$", tax);
+		System.out.printf("%30s%5s%.2f\n", "Total:", "$", grandyTotal);
+		System.out.printf("%30s%5s", "Payment:", " Approved");
+		System.out.println();
+
+	}
+
+	public static void cardReciept(double subtotal, double salesTax, double grandTotal, List<Receipt> list) {
+		double subytotal = subtotal;
+		double tax = salesTax;
+		double grandyTotal = grandTotal;
+		List<Receipt> reciptList = list;
+
+		System.out.println("Here is your reciept!");
+		System.out.println();
+		System.out.println("Slop Hut");
+		System.out.println("--------");
+		for (Receipt r : reciptList) {
+			System.out.println(r.toString());
+
+		}
+		System.out.println("------------------------------------------");
+		System.out.printf("%30s%5s%.2f\n", "Subtotal:", "$", subytotal);
+		System.out.printf("%30s%5s%.2f\n", "Tax:", "$", tax);
+		System.out.printf("%30s%5s%.2f\n", "Total:", "$", grandyTotal);
+		System.out.printf("%30s%5s", "Payment:", " Approved");
+		System.out.println();
+
+	}
+
 }
