@@ -48,7 +48,7 @@ public class SlopShopApp {
 				boolean tryCatch = true;
 
 				do {
-					System.out.println("What item would you like to buy?");
+					System.out.println("What item would you like to buy? (Select item number)");
 					try {
 						userSelection = scnr.nextInt();
 						scnr.nextLine(); // clear scanner
