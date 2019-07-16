@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,11 +34,16 @@ public class SlopMethods {
 	public static double cash(double grandTotal, Scanner scnr) {
 		boolean valid = true;
 		double change = 0;
+		double userCash = 0;
 		do {
 			System.out.println("Enter cash amount.");
-
-			double userCash = scnr.nextDouble();
+			try {
+			userCash = scnr.nextDouble();
 			scnr.nextLine();
+			}catch (InputMismatchException e){
+				scnr.nextLine();
+				System.out.println("Please enter a valid cash amount.");
+			}
 			if (userCash > grandTotal) {
 				change = userCash - grandTotal;
 				valid = true;
@@ -46,7 +52,8 @@ public class SlopMethods {
 				System.out.println("That isn't enough to pay for your order");
 				valid = false;
 			}
-		} while (valid);
+		} while (!valid);
+		
 		return change;
 	}
 
@@ -58,13 +65,13 @@ public class SlopMethods {
 			checkNumber = scnr.nextLine();
 			if (checkNumber.matches("[0-9]{9}")) {
 				valid = true;
-
+				System.out.println("Check accepted!");
 			} else {
 				System.out.println("That is not a valid check number");
 				valid = false;
 			}
 
-		} while (valid);
+		} while (!valid);
 		return true;
 	}
 
@@ -76,8 +83,8 @@ public class SlopMethods {
 
 		do {
 			valid = true;
-			System.out.println(
-					"Please enter your card information (xxxx-xxxx-xxxx-xxxx). WE DO NOT TAKE AMERICAN EXPRESS");
+			System.out.println("Please enter your card information (xxxx-xxxx-xxxx-xxxx)");
+			System.out.println("WE DO NOT TAKE AMERICAN EXPRESS");
 			number = scnr.nextLine();
 			if (number.matches("\\d{4}-\\d{4}-\\d{4}-\\d{4}")) {
 			} else {
@@ -85,7 +92,7 @@ public class SlopMethods {
 				valid = false;
 			}
 
-		} while (valid);
+		} while (!valid);
 
 		do {
 			valid = true;
@@ -97,7 +104,7 @@ public class SlopMethods {
 				valid = false;
 			}
 
-		} while (valid);
+		} while (!valid);
 
 		do {
 			valid = true;
@@ -109,8 +116,8 @@ public class SlopMethods {
 				valid = false;
 			}
 
-		} while (valid);
-
+		} while (!valid);
+		System.out.println("Card accepted, have a great day!");
 		return true;
 	}
 }

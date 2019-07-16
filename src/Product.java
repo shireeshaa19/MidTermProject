@@ -21,7 +21,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return (String.format("%-22s%-12s%-10s%-18.2f", getName(), getCategory(), getDescription(), getPrice()));
+		return (String.format("%-22s%-12s%-15s$%-18.2f", getName(), getCategory(), getDescription(), getPrice()));
 
 	}
 
