@@ -120,4 +120,24 @@ public class SlopMethods {
 		System.out.println("Card accepted, have a great day!");
 		return true;
 	}
+	
+	public static void cashReciept(double subtotal, double salesTax, double grandTotal, double userCash, double change){
+		double subytotal = subtotal;
+		double tax = salesTax;
+		double grandyTotal = grandTotal;
+		double useryCash = userCash;
+		double changey = change;
+		
+		
+		System.out.println("Here is your reciept!");
+		System.out.println();
+		System.out.println("Slop Hut");
+		System.out.println("--------");
+		System.out.println("subtotal: " + subytotal);
+		System.out.println("tax: " + tax);
+		System.out.println("Total: " + grandyTotal);
+		System.out.println("Payment =" +useryCash   );
+		System.out.println("Change Tendered: " +changey);
+		
+	}
 }
