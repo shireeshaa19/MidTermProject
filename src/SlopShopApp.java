@@ -102,15 +102,14 @@ public class SlopShopApp {
 			double grandTotal = subtotal + salesTax;
 			System.out.println("Grand Total: $" + df2.format(grandTotal));
 			System.out.println();
-			
+
 			for (int i = 0; i < itemsList.size(); i++) {
-				if (quantity.get(i) > 0 ) {
-					receiptList.add(new Receipt(name.get(i),quantity.get(i),(quantity.get(i)*price.get(i))));
-					
+				if (quantity.get(i) > 0) {
+					receiptList.add(new Receipt(name.get(i), quantity.get(i), (quantity.get(i) * price.get(i))));
+
 				}
 			}
-			
-			
+
 			double userCash = 0;
 			do {
 				valid = true;
@@ -119,9 +118,9 @@ public class SlopShopApp {
 				if (userPayment.equalsIgnoreCase("cash")) {
 					System.out.println("Enter cash amount.");
 					try {
-					userCash = scnr.nextDouble();
-					scnr.nextLine();
-					}catch (InputMismatchException e){
+						userCash = scnr.nextDouble();
+						scnr.nextLine();
+					} catch (InputMismatchException e) {
 						scnr.nextLine();
 						System.out.println("Please enter a valid cash amount.");
 					}
